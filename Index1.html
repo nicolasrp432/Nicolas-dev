@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Theme Changer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            transition: all 0.5s ease;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            padding: 2rem;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            color: #1f2937;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        p {
+            color: #4b5563;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            <h1>Bienvenido al Theme Switcher</h1>
+            <p>Sitio creado el 11/02/2025</p>
+        </div>
+        
+        <p>Esta página muestra un ejemplo moderno de interfaz con capacidad para cambiar temas de color dinámicamente. Presiona el botón para experimentar con diferentes combinaciones de colores profesionales y contemporáneos.</p>
+        
+        <button class="cta-button" id="themeButton">
+            <span>Cambiar Tema</span>
+        </button>
+    </div>
+
+    <script>
+        const colors = [
+            ['#6366f1', '#a855f7'], // Índigo a púrpura
+            ['#3b82f6', '#60a5fa'], // Azul suave
+            ['#10b981', '#34d399'], // Esmeralda a verde menta
+            ['#f59e0b', '#fbbf24'], // Ámbar a amarillo
+            ['#ef4444', '#f87171']  // Rojo coral
+        ];
+
+        const themeButton = document.getElementById('themeButton');
+        const container = document.querySelector('.container');
+        const icon = document.querySelector('.icon');
+
+        let currentColor = 0;
+
+        function changeTheme() {
+            currentColor = (currentColor + 1) % colors.length;
+            
+            document.body.style.background = `linear-gradient(135deg, ${colors[currentColor][0]}, ${colors[currentColor][1]})`;
+            themeButton.style.background = colors[currentColor][0];
+            container.style.boxShadow = `0 8px 32px ${colors[currentColor][0]}20`;
+            icon.style.fill = colors[currentColor][0];
+        }
+
+        themeButton.addEventListener('click', changeTheme);
+    </script>
+</body>
+nueva linear-gradient
+</html>
